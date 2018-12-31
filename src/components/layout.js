@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
+import { Container } from '../styledComponents/layout'
 import './layout.css'
 
 const Layout = ({ children }) => (
@@ -18,20 +19,14 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0,
-          }}
-        >
+        <Header
+          background="background-color: #8BC6EC;
+                      background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);"
+          title={data.site.siteMetadata.title}
+        />
+        <Container>
           {children}
-          <footer>
-            © 2018, Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
+        </Container>
       </>
     )}
   />
@@ -41,4 +36,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default Layout;

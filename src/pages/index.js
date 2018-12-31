@@ -1,20 +1,20 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import Link from 'gatsby-link'
 
 import Layout from '../components/layout'
-import Image from '../components/image'
 import SEO from '../components/seo'
+
+import { Button } from '../styledComponents/theme'
+import { Heading2 } from '../styledComponents/typography'
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Heading2>A next gen polling application</Heading2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod placeat numquam modi similique ea, alias eos facilis ab saepe corrupti nesciunt doloribus dolore illo minus officia quo obcaecati, dolorem asperiores?</p>
+    <Link to='/new'>
+      <Button>New Poll</Button>
+    </Link>
   </Layout>
 )
 

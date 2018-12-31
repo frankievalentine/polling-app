@@ -1,42 +1,41 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import styled from 'styled-components'
 
-const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </div>
+import { Container } from '../styledComponents/layout'
+import { Heading1 } from '../styledComponents/typography'
+
+const HeaderContainer = styled.header`
+  ${props => props.background};
+  margin-bottom: 1.45rem;
+`
+
+const StyledLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+`
+
+const BACKGROUND = 'background-color: #20232a';
+
+const Header = ({ background, title }) => (
+  <HeaderContainer background={background}>
+    <Container>
+      <Heading1>
+        <StyledLink to='/'>{title}</StyledLink>
+      </Heading1>
+    </Container>
+  </HeaderContainer>
 )
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+  background: PropTypes.string,
+  title: PropTypes.string,
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  background: BACKGROUND,
+  title: "Polling App",
 }
 
 export default Header
