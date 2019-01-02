@@ -2,11 +2,16 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 import { arrayMove } from 'react-sortable-hoc'
-import shortId from 'short-id'
+import shortId from 'shortid'
 
 import { Button } from '../styledComponents/theme'
 import { Heading2 } from '../styledComponents/typography'
 import NewPoll from '../components/NewPoll/index'
+
+// const CreateButton = Button.extend`
+//   background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+//   margin-left: 20px;
+// `
 
 const ActionContainer = styled.div`
   display: flex;
