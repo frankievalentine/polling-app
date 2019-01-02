@@ -4,7 +4,15 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Container } from '../styledComponents/layout'
+import SignIn from './SignIn/index'
+import GoogleIcon from '../icons/Google'
 import { Heading1 } from '../styledComponents/typography'
+
+const NewContainer = styled(Container)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
 
 const HeaderContainer = styled.header`
   ${props => props.background};
@@ -16,26 +24,37 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
+const StyledGoogleIcon = styled(GoogleIcon)`
+  margin-right: 5px;
+`
+
 const BACKGROUND = 'background-color: #20232a';
 
 const Header = ({ background, title }) => (
   <HeaderContainer background={background}>
-    <Container>
+    <NewContainer>
       <Heading1>
         <StyledLink to='/'>{title}</StyledLink>
       </Heading1>
-    </Container>
+      <SignIn
+      onClick={() => (isAuthed ? signOut() : signIn('google'))}
+      icon={isAuthed ? null : <StyledGoogleIcon />}
+      text={isAuthed ? 'Sign Out' : 'Sign in with Google'}
+      />
+    </NewContainer>
   </HeaderContainer>
 )
 
 Header.propTypes = {
   background: PropTypes.string,
+  signIn: PropTypes.func.isRequired,
+  signOut: PropTypes.func.isRequired,
   title: PropTypes.string,
+  isAuthed: PropTypes.bool,
 }
 
 Header.defaultProps = {
   background: BACKGROUND,
-  title: "Polling App",
 }
 
 export default Header
